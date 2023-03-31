@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Results</h1>
+    {% for result in results %}
+    <h2>{{ result.header }}</h2>
+    {% if result.products %}
+    {% for product in result.products %}
+    <p>Product Name: {{ product.name }}</p>
+    <p>Product Price: {{ product.price }}</p>
+    <hr>
+    {% endfor %}
+    {% else %}
+    <p>None</p>
+    {% endif %}
+    {% endfor %}
+    <a href="{{ url_for('index') }}">Go Back</a>
+</body>
+</html>
